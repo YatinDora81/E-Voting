@@ -39,10 +39,13 @@ const HomeUser = () => {
       if (res.data.success === true) {
         dispatch(addCData(res.data.data));
         dispatch(addCity(res.data.city));
+
+        const allVotes = res.data.allVotes
+        const isPres = allVotes?.some(vote => vote?.name === searchString?.email);
         
-        const isPresent = isStringInVotes(res.data.data, searchString?.email);
+        // const isPresent = isStringInVotes(res.data.data, searchString?.email);
         // console.log(isPresent);
-        dispatch(changeUserVoted(isPresent))
+        dispatch(changeUserVoted(isPres))
         // const tell=
       }
     } catch (err) {

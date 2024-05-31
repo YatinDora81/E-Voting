@@ -57,6 +57,7 @@ const AllCandidatesUser = () => {
       return obj.votes && obj.votes.includes(searchString);
     });
   };
+
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
@@ -68,10 +69,16 @@ const AllCandidatesUser = () => {
       if (res.data.success === true) {
         dispatch(addCData(res.data.data));
         dispatch(addCity(res.data.city));
-        
-        const isPresent = isStringInVotes(res.data.data, searchString?.email);
+
+        console.log(res);
+        const allVotes = res.data.allVotes
+        const isPres = allVotes.some(vote => vote.name === searchString?.email);
+
+        // const isPresent = isStringInVotes(res.data.data, searchString?.email);
+        // const isPresent = isPresent( res.data. )
+
         // console.log(isPresent);
-        dispatch(changeUserVoted(isPresent))
+        dispatch(changeUserVoted(isPres))
         // const tell=
       }
     } catch (err) {

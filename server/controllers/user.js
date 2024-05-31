@@ -2,16 +2,19 @@ const CityModel = require("../models/city");
 const CandidateModel = require("../models/candidate");
 const { transporter } = require("../config/transporter");
 const { getOtp } = require("../utils/otpGenerator");
+const VotedModel = require("../models/voted")
 
 exports.getAllCandiates = async (req, res) => {
   try {
     const data = await CandidateModel.find({});
     const city = await CityModel.find({});
+    const allVotes = await VotedModel.find({});
 
     return res.status(200).json({
       success: true,
       data: data,
       city: city,
+      allVotes : allVotes,
       message: "Successfully Fetch All Candidates Data",
     });
   } catch (error) {
@@ -193,9 +196,11 @@ exports.addVote = async (req, res) => {
 
     const updateuser = await CandidateModel.findOneAndUpdate(
       { _id: candidateId },
-      { $push: { votes: email } },
+      { $push: { votes: "." } },
       { new: true }
     );
+
+    const newVote = await VotedModel.create({name : email});
 
     return res.status(200).json({
       success: true,
