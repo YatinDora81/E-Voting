@@ -5,6 +5,7 @@ import axios from "axios";
 import SIdeBarAdmin from "./SIdeBarAdmin";
 import NavbarAdmin from "./NavbarAdmin";
 import { addCData, addCity } from "../../redux/dbSlice";
+import { baseurl } from "../../utils/passwords";
 
 const AllCandidatesAdmin = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -22,7 +23,7 @@ const AllCandidatesAdmin = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);
@@ -80,12 +81,12 @@ const AllCandidatesAdmin = () => {
                                 <div className="flex gap-8 justify-center items-center">
                                     <p className=" text-2xl">Current Status { (d?.visible==="yes" || d?.visible==="Yes") ? <span className=" text-green-600">Running</span> : (d?.visible==="no") ? <span className=" text-red-600">Stoped</span> : <span className=" text-yellow-500">Pending</span>} </p>
                                 <button onClick={async()=>{
-                                    const data =await axios.post("http://localhost:3000/api/v1/approve-candidate" , {"id" : d?._id});
+                                    const data =await axios.post(baseurl+"/api/v1/approve-candidate" , {"id" : d?._id});
                                     // refreshData()
                                     useFechDbData()
                                 }} className=" text-2xl border px-4 py-2 bg-green-500"> Approve </button>
                                 <button onClick={async()=>{
-                                    const data = await axios.post("http://localhost:3000/api/v1/reject-candidate" , {"id" : d?._id});
+                                    const data = await axios.post(baseurl+"/api/v1/reject-candidate" , {"id" : d?._id});
                                     // refreshData()
                                     useFechDbData()
                                 }} className=" text-2xl border px-4 py-2 bg-red-500"> Reject </button>

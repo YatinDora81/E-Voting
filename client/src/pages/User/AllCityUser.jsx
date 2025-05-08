@@ -5,6 +5,7 @@ import axios from "axios";
 import { addCData, addCity } from "../../redux/dbSlice";
 import NavbarUser from "./NavbarUser";
 import SidebarUser from "./SidebarUser";
+import { baseurl } from "../../utils/passwords";
 
 const AllCityUser = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -28,7 +29,7 @@ const AllCityUser = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);

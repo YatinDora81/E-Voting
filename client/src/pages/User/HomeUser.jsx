@@ -8,6 +8,7 @@ import Sidebar from "../../components/Sidebar";
 import NavbarUser from "./NavbarUser";
 import SidebarUser from "./SidebarUser";
 import AllCityUser from "./AllCityUser";
+import { baseurl } from "../../utils/passwords";
 
 const HomeUser = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -31,7 +32,7 @@ const HomeUser = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);

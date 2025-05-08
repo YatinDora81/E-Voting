@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { blue } from "@mui/material/colors";
-import { cloud_name, folder, upload_preset } from "../../utils/passwords";
+import { baseurl, cloud_name, folder, upload_preset } from "../../utils/passwords";
 
 const style = {
   position: "absolute",
@@ -65,7 +65,7 @@ const CandForm = ({ email }) => {
     handleOpen();
 
     try {
-      const otp = await axios.post("http://localhost:3000/api/v1/get-otp", {
+      const otp = await axios.post(baseurl+"/api/v1/get-otp", {
         email: email,
       });
       const otpcode = otp.data.otp;
@@ -97,7 +97,7 @@ const CandForm = ({ email }) => {
         // let aa = city.current.value
 
         const { data } = await axios.post(
-          "http://localhost:3000/api/v1/create-candidate",
+          baseurl+"/api/v1/create-candidate",
           {
             cname: cname.current.value,
             address: address.current.value,
@@ -145,7 +145,7 @@ const CandForm = ({ email }) => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);

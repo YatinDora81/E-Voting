@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { blue } from "@mui/material/colors";
+import { baseurl } from "../../utils/passwords";
 
 const style = {
   position: "absolute",
@@ -61,7 +62,7 @@ const AllCandidatesUser = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);
@@ -97,7 +98,7 @@ const AllCandidatesUser = () => {
       console.log(id);
       try {
         //add vote api
-        const otp = await axios.post("http://localhost:3000/api/v1/add-vote", {
+        const otp = await axios.post(baseurl+"/api/v1/add-vote", {
           "email": userInfo.email, "candidateId" : id
         });
         const votedSuccess = otp.data.success;
@@ -195,7 +196,7 @@ const AllCandidatesUser = () => {
                               handleOpen();
                               try {
                                 const otp = await axios.post(
-                                  "http://localhost:3000/api/v1/get-otp",
+                                  baseurl+"/api/v1/get-otp",
                                   {
                                     email: userInfo.email,
                                   }

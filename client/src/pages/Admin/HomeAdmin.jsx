@@ -7,6 +7,7 @@ import NavBar from "../../components/NavBar";
 import SIdeBarAdmin from "./SIdeBarAdmin";
 import NavbarAdmin from "./NavbarAdmin";
 import AllCards from "./AllCards";
+import { baseurl } from "../../utils/passwords";
 
 const HomeAdmin = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -20,7 +21,7 @@ const HomeAdmin = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);

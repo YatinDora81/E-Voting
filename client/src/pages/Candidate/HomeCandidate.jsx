@@ -7,6 +7,7 @@ import CandCard from "./CandCard";
 import CandForm from "./CandForm";
 import NavBar from "../../components/NavBar";
 import Sidebar from "../../components/Sidebar";
+import { baseurl } from "../../utils/passwords";
 
 const HomeCandidate = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -20,7 +21,7 @@ const HomeCandidate = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);

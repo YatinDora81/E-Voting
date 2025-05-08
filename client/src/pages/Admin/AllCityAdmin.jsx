@@ -5,6 +5,7 @@ import axios from "axios";
 import SIdeBarAdmin from "./SIdeBarAdmin";
 import NavbarAdmin from "./NavbarAdmin";
 import { addCData, addCity } from "../../redux/dbSlice";
+import { baseurl } from "../../utils/passwords";
 
 const AllCityAdmin = () => {
   const userInfo = useSelector((state) => state.user.userInfo);
@@ -21,7 +22,7 @@ const AllCityAdmin = () => {
   const useFechDbData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/get-all-candiates"
+        baseurl+"/api/v1/get-all-candiates"
       );
 
       // console.log(res);
@@ -62,12 +63,12 @@ const AllCityAdmin = () => {
                                 <div className="flex gap-8 justify-center items-center">
                                     <p className=" text-2xl">Current Status { (d?.value==="yes" || d?.value==="Yes") ?<span className=" text-green-600">Running</span> : <span className=" text-red-600">Stoped</span> }</p>
                                 <button onClick={async()=>{
-                                    const data =await axios.post("http://localhost:3000/api/v1/approve-city" , {"name" : d.name});
+                                    const data =await axios.post(baseurl+"/api/v1/approve-city" , {"name" : d.name});
                                     // refreshData()
                                     useFechDbData()
                                 }} className=" text-2xl border px-4 py-2 bg-green-500"> Run For Voting </button>
                                 <button onClick={async()=>{
-                                    const data = await axios.post("http://localhost:3000/api/v1/reject-city" , {"name" : d.name});
+                                    const data = await axios.post(baseurl+"/api/v1/reject-city" , {"name" : d.name});
                                     // refreshData()
                                     useFechDbData()
                                 }} className=" text-2xl border px-4 py-2 bg-red-500"> Stop For Voting </button>
