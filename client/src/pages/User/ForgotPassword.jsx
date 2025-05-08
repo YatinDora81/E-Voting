@@ -53,13 +53,13 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className=" w-full h-[100vh] bg-slate-300 dark:bg-slate-900 relative flex justify-center items-center">
-      <div className=" absolute top-0 left-0 text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-28 pl-20 py-5 dark:text-white">
+    <div className=" w-full h-[100vh] bg-slate-300 dark:bg-slate-900 relative flex justify-center items-center px-8 md:px-0">
+      <div className=" absolute top-0 left-0 text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-28 pl-10 md:pl-20 py-5 dark:text-white">
         <span className=" text-5xl text-green-600">E</span>Voting
       </div>
       <div
         onClick={themeChange}
-        className=" absolute top-0 right-0 text-4xl  pr-28 py-5"
+        className="absolute top-0 right-0 text-4xl pr-10 md:pr-28 py-8 md:py-5"
       >
         {isDark ? (
           <MdLightMode className=" dark:text-white"></MdLightMode>

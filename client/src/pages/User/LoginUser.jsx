@@ -77,6 +77,8 @@ const LoginUser = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+        console.log(user);
+        
         // IdP data available using getAdditionalUserInfo(result)
         // console.log(user);const data = auth.currentUser;
         dispatch(addUserInfo(user.toJSON()));
@@ -99,12 +101,12 @@ const LoginUser = () => {
 
   return (
     <div className=" w-full h-[100vh] bg-slate-300 dark:bg-slate-900 relative flex justify-center items-center">
-      <div className=" absolute top-0 left-0 text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-28 pl-20 py-5 dark:text-white">
+      <div className=" absolute top-0 left-0 text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-28 pl-10 md:pl-20 py-5 dark:text-white">
         <span className=" text-5xl text-green-600">E</span>Voting
       </div>
       <div
         onClick={themeChange}
-        className=" absolute top-0 right-0 text-4xl  pr-28 py-5"
+        className="absolute top-0 right-0 text-4xl pr-10 md:pr-28 py-8 md:py-5"
       >
         {isDark ? (
           <MdLightMode className=" dark:text-white"></MdLightMode>
@@ -115,7 +117,7 @@ const LoginUser = () => {
 
       <form
         onSubmit={submitHandler}
-        className=" z-[10] flex flex-col items-center min-w-[32vw]  min-h-[40vh] justify-center gap-7 bg-slate-100 bg-opacity-70 rounded-2xl py-5"
+        className=" z-[10] flex flex-col items-center min-w-[84vw] md:min-w-[32vw]  min-h-[40vh] justify-center gap-7 bg-slate-100 bg-opacity-70 rounded-2xl py-5"
       >
         <h1 className=" w-full  text-3xl font-semibold text-center">
           Login For User
@@ -131,7 +133,7 @@ const LoginUser = () => {
             onClick={() => {
               setIsEye(!isEye);
             }}
-            className=" absolute text-2xl right-[2.5vw] cursor-pointer"
+            className=" absolute text-2xl right-[5.5vw] md:right-[2.5vw] cursor-pointer"
           >
             {isEye ? <FaRegEye></FaRegEye> : <FaRegEyeSlash></FaRegEyeSlash>}
           </div>
@@ -156,7 +158,7 @@ const LoginUser = () => {
 
           <h1 className=" w-[90%] my-1 text-center">OR</h1>
 
-          <div onClick={signupgoogleHandler} className=" cursor-pointer w-[90%] bg-blue-600 h-12 text-2xl text-white rounded-xl transition-all hover:bg-blue-500 flex justify-center items-center gap-2">
+          <div onClick={signupgoogleHandler} className=" cursor-pointer w-[90%] bg-blue-600 h-12 text-lg md:text-2xl text-white rounded-xl transition-all hover:bg-blue-500 flex justify-center items-center gap-2">
             Login With Google{" "}
             <FcGoogle className=" bg-white text-3xl rounded-full"></FcGoogle>
           </div>
@@ -167,19 +169,19 @@ const LoginUser = () => {
               Forgot Password
             </Link>
           </p>
-          <p className=" text-lg ">
+          <p className="text-sm md:text-lg">
             Not a User ,{" "}
             <Link className=" italic underline" to="/">
               Sign Up Here
             </Link>
           </p>
-          <p className=" text-lg ">
+          <p className="text-sm md:text-lg ">
             Already a Candidate ,{" "}
             <Link className=" italic underline" to="/candidateLogin">
               Login Here
             </Link>
           </p>
-          <p className=" text-lg">
+          <p className="text-sm md:text-lg">
             Signup as Candidate,{" "}
             <Link className=" italic underline" to="/candidateSignup">
               SignUp Here

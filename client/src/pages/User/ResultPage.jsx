@@ -27,7 +27,7 @@ const ResultPage = () => {
 
   return (
     <div className=" px-12 dark:text-white">
-      <div className=" flex justify-center items-center h-[55vh] mt-10 dark:bg-blue-100 ">
+      <div className=" flex justify-center items-center min-h-[55vh] mt-10 dark:bg-blue-100 ">
         <PieChart 
           series={[
             {

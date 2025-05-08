@@ -40,7 +40,7 @@ const NavbarUser = () => {
   };
 
   return (
-    <div className=" flex justify-between items-center text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-full pr-24  pl-16 -mt-2 dark:text-white">
+    <div className=" flex  justify-between items-center text-4xl bg-slate-300 dark:bg-slate-900 bg-gradient-to-b from-blue-300 dark:from-slate-800 w-full h-full pr-24  pl-16 -mt-2 dark:text-white">
       <div className=" flex gap-2 justify-center items-center">
         <div onClick={()=>{dispatch(changeSideBar())}} className=" text-4xl"><IoMenu></IoMenu></div>
         <div><span className=" text-5xl text-green-600">E</span>Voting</div>
