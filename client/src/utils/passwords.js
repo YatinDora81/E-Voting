@@ -18,4 +18,4 @@ export const cloud_name = import.meta.env.VITE_cloud_name
 
 export const folder = import.meta.env.VITE_folder
 
-export const baseurl = import.meta.env.BD_BASE_URL
+export const baseurl = import.meta.env.VITE_BD_BASE_URL
